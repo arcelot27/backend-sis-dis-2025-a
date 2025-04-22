@@ -4,79 +4,42 @@ import com.corhuila.AgendaManager.Dto.UsuarioDTO;
 import com.corhuila.AgendaManager.entity.Usuario;
 import com.corhuila.AgendaManager.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
-public class UsuarioService {
+public class UsuarioService implements IUsuarioService {
 
-    private final UsuarioRepository usuarioRepository;
+    private final UsuarioRepository repository;
 
-    public UsuarioService(UsuarioRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
+    public UsuarioService(UsuarioRepository repository) {
+        this.repository = repository;
     }
 
-    // Obtener todos los usuarios
+    @Override
     public List<UsuarioDTO> findAll() {
-        return usuarioRepository.findAll().stream()
-            .map(usuario -> new UsuarioDTO(
-                usuario.getId(),
-                usuario.getRol(),
-                usuario.getNombre(),
-                usuario.getCorreo(),
-                usuario.getContrasena()
-            ))
-            .toList();
+        return repository.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
-    // Buscar usuario por ID
+    @Override
     public UsuarioDTO findById(Long id) {
-        Usuario usuario = usuarioRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-
-        return new UsuarioDTO(
-            usuario.getId(),
-            usuario.getRol(),
-            usuario.getNombre(),
-            usuario.getCorreo(),
-            usuario.getContrasena()
-        );
+        return repository.findById(id).map(this::mapToDTO).orElse(null);
     }
 
-    // Actualizar usuario
-    public UsuarioDTO update(Long id, UsuarioDTO dto) {
-        Usuario usuario = usuarioRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-
-        usuario.setRol(dto.rol());
-        usuario.setNombre(dto.nombre());
-        usuario.setCorreo(dto.correo());
-        usuario.setContrasena(dto.contrasena());
-
-        usuarioRepository.save(usuario);
-
-        return new UsuarioDTO(
-            usuario.getId(),
-            usuario.getRol(),
-            usuario.getNombre(),
-            usuario.getCorreo(),
-            usuario.getContrasena()
-        );
-    }
-
-    public UsuarioRepository getUsuarioRepository() {
-        return usuarioRepository;
-    }
-
+    @Override
     public UsuarioDTO findByCorreo(String correo) {
-        Usuario usuario = usuarioRepository.findByCorreo(correo)
-            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-    
-        return new UsuarioDTO(
-            usuario.getId(),
-            usuario.getRol(),
-            usuario.getNombre(),
-            usuario.getCorreo(),
-            usuario.getContrasena()
-    );
+        Optional<Usuario> entity = repository.findByCorreo(correo);
+        return entity.map(this::mapToDTO).orElse(null);
+    }
+
+    private UsuarioDTO mapToDTO(Usuario entity) {
+        UsuarioDTO dto = new UsuarioDTO();
+        dto.setId(entity.getId());
+        dto.setNombre(entity.getNombre());
+        dto.setCorreo(entity.getCorreo());
+        dto.setRol(entity.getRol());
+        return dto;
     }
 }

@@ -18,7 +18,7 @@ public class SecurityConfig {
                 .anyRequest().authenticated()         // El resto requiere autenticación
             )
             .formLogin(form -> form
-                .loginPage("/login")                 // Página personalizada de login
+                               
                 .permitAll()
             )
             .csrf(csrf -> csrf.disable());           // Desactiva CSRF para desarrollo
