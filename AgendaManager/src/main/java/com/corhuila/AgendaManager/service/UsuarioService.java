@@ -24,8 +24,8 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public UsuarioDTO findById(Long id) {
-        return repository.findById(id).map(this::mapToDTO).orElse(null);
+    public UsuarioDTO findById(Long ID_Usuario) {
+        return repository.findById(ID_Usuario).map(this::mapToDTO).orElse(null);
     }
 
     @Override

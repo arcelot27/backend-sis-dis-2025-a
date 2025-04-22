@@ -8,14 +8,18 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long ID_Usuario;
     private String nombre;
     private String correo;
     private String rol;
+    private String contrasena;
+
+    public String getContrasena() { return contrasena; }
+    public void setContrasena(String contrasena) { this.contrasena = contrasena; }
 
     // Getters y Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() { return ID_Usuario; }
+    public void setId(Long ID_Usuario) { this.ID_Usuario = ID_Usuario; }
 
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }

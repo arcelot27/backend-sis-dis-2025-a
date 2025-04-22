@@ -12,17 +12,10 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/error").permitAll() // Permite la página de error
-                .requestMatchers("/").permitAll()      // Permite la ruta raíz
-                .requestMatchers("/swagger-ui.html", "/swagger-ui/**").denyAll() // Bloquea Swagger
-                .anyRequest().authenticated()         // El resto requiere autenticación
+                .anyRequest().permitAll() // ✅ Permitir todas las rutas temporalmente
             )
-            .formLogin(form -> form
-                               
-                .permitAll()
-            )
-            .csrf(csrf -> csrf.disable());           // Desactiva CSRF para desarrollo
-
+            .csrf(csrf -> csrf.disable()); // ✅ Desactivar CSRF
+    
         return http.build();
     }
-}
+    }

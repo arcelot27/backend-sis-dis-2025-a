@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface IUsuarioService {
     List<UsuarioDTO> findAll();
-    UsuarioDTO findById(Long id);
+    UsuarioDTO findById(Long ID_Usuario);
     UsuarioDTO findByCorreo(String correo);
 }

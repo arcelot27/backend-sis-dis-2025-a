@@ -22,9 +22,9 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioService.findAll());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<UsuarioDTO> getUsuarioById(@PathVariable Long id) {
-        return ResponseEntity.ok(usuarioService.findById(id));
+    @GetMapping("/{ID_Usuario}")
+    public ResponseEntity<UsuarioDTO> getUsuarioById(@PathVariable Long ID_Usuario) {
+        return ResponseEntity.ok(usuarioService.findById(ID_Usuario));
     }
 
     @GetMapping("/perfil")
