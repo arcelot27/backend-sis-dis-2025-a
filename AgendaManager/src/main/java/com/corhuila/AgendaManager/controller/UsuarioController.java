@@ -17,18 +17,28 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
+    // Obtener todos los usuarios
     @GetMapping
     public ResponseEntity<List<UsuarioDTO>> getAllUsuarios() {
         return ResponseEntity.ok(usuarioService.findAll());
     }
 
+    // Obtener usuario por ID
     @GetMapping("/{ID_Usuario}")
     public ResponseEntity<UsuarioDTO> getUsuarioById(@PathVariable Long ID_Usuario) {
         return ResponseEntity.ok(usuarioService.findById(ID_Usuario));
     }
 
+    // Obtener perfil por correo
     @GetMapping("/perfil")
     public UsuarioDTO getPerfil(@RequestParam String correo) {
         return usuarioService.findByCorreo(correo);
+    }
+
+    // Guardar un nuevo usuario (desde formulario del frontend)
+    @PostMapping("/guardar")
+    public ResponseEntity<UsuarioDTO> saveUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+        UsuarioDTO nuevoUsuario = usuarioService.save(usuarioDTO);
+        return ResponseEntity.ok(nuevoUsuario);
     }
 }

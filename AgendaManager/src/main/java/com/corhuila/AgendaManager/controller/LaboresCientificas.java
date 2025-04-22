@@ -1,5 +1,0 @@
-package com.corhuila.AgendaManager.controller;
-
-public class LaboresCientificas {
-
-}

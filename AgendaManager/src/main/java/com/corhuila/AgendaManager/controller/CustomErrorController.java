@@ -12,19 +12,19 @@ public class CustomErrorController implements ErrorController {
 
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request) {
-        // Obtiene el código de estado HTTP (404, 500, etc.)
+       
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
         
         if (status != null) {
             int statusCode = Integer.parseInt(status.toString());
             
-            // Personaliza la respuesta según el código de error
+           
             if (statusCode == HttpStatus.NOT_FOUND.value()) {
-                return "error-404";  // Plantilla para 404
+                return "error-404";  
             } else if (statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
-                return "error-500";  // Plantilla para 500
+                return "error-500";  
             }
         }
-        return "error";  // Plantilla genérica (error.html)
+        return "error";  
     }
 }
