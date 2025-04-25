@@ -12,9 +12,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-                .anyRequest().permitAll() // ✅ Permitir todas las rutas temporalmente
+                .anyRequest().permitAll() 
             )
-            .csrf(csrf -> csrf.disable()); // ✅ Desactivar CSRF
+            .csrf(csrf -> csrf.disable()); 
     
         return http.build();
     }

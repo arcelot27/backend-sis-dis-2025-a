@@ -1,69 +1,28 @@
 package com.corhuila.AgendaManager.service;
 
-
-import com.corhuila.AgendaManager.Dto.UsuarioDTO;
 import com.corhuila.AgendaManager.entity.Usuario;
 import com.corhuila.AgendaManager.repository.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
-public class UsuarioService implements IUsuarioService {
+public class UsuarioService {
 
-    private final UsuarioRepository repository;
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
-    public UsuarioService(UsuarioRepository repository) {
-        this.repository = repository;
+    public Usuario obtenerPerfil() {
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        return usuarios.isEmpty() ? null : usuarios.get(0); // Devuelve el primero
     }
 
-    @Override
-    public List<UsuarioDTO> findAll() {
-        return repository.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
+    public Usuario actualizarUsuario(Integer id, String nombre, String contrasena) {
+        Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        usuario.setNombre(nombre);
+        usuario.setContrasena(contrasena);
+        return usuarioRepository.save(usuario);
     }
 
-    @Override
-    public UsuarioDTO findById(Long ID_Usuario) {
-        return repository.findById(ID_Usuario).map(this::mapToDTO).orElse(null);
-    }
-
-    @Override
-    public UsuarioDTO findByCorreo(String correo) {
-        Optional<Usuario> entity = repository.findByCorreo(correo);
-        return entity.map(this::mapToDTO).orElse(null);
-    }
-
-    // Método para guardar un nuevo usuario
-    @Override
-    public UsuarioDTO save(UsuarioDTO usuarioDTO) {
-        Usuario usuario = mapToEntity(usuarioDTO);  // Convertir DTO a Entity
-        Usuario usuarioGuardado = repository.save(usuario); // Guardar en la base de datos
-        return mapToDTO(usuarioGuardado);  // Retornar el DTO del usuario guardado
-    }
-
-    // Convertir Entity a DTO
-    private UsuarioDTO mapToDTO(Usuario entity) {
-        UsuarioDTO dto = new UsuarioDTO();
-        dto.setId(entity.getId());
-        dto.setNombre(entity.getNombre());
-        dto.setCorreo(entity.getCorreo());
-        dto.setRol(entity.getRol());
-        dto.setContrasena(entity.getContrasena());
-        // Asignar cualquier otro campo adicional aquí si es necesario
-        return dto;
-    }
-
-    // Convertir DTO a Entity
-    private Usuario mapToEntity(UsuarioDTO dto) {
-        Usuario usuario = new Usuario();
-        usuario.setId(dto.getId());  // Mapea el ID
-        usuario.setNombre(dto.getNombre());  // Mapea el nombre
-        usuario.setCorreo(dto.getCorreo());  // Mapea el correo
-        usuario.setRol(dto.getRol());  // Mapea el rol
-        usuario.setContrasena(dto.getContrasena());  // Mapea la contraseña
-        // Mapear los nuevos campos si es necesario
-        return usuario;
-    }
 }
