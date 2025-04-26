@@ -24,12 +24,11 @@ public class FormularioEntity {
     private String horasSemanales;
     private String horasSemestrales;
 
-    // Actividades Académicas
+
     private String preparacionClases;
     private String evaluacionAprendizajes;
     private String gestionEventos;
 
-    // Actividades Formativas
     private String acompanamiento;
     private String cursosFortalecimiento;
     private String asesoriaEmprendimiento;

@@ -23,4 +23,10 @@ public class FormularioController {
         FormularioEntity formulario = service.guardarFormulario(dto);
         return ResponseEntity.ok(formulario);
     }
+    
+    @PostMapping("/api/labores-academicas")
+    public ResponseEntity<?> guardarLabores(@RequestBody FormularioDTO datosLabores) {
+
+        return ResponseEntity.ok("Labores guardadas correctamente");
+    }
 }

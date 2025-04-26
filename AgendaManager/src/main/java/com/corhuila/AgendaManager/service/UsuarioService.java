@@ -15,7 +15,7 @@ public class UsuarioService {
 
     public Usuario obtenerPerfil() {
         List<Usuario> usuarios = usuarioRepository.findAll();
-        return usuarios.isEmpty() ? null : usuarios.get(0); // Devuelve el primero
+        return usuarios.isEmpty() ? null : usuarios.get(0); 
     }
 
     public Usuario actualizarUsuario(Integer id, String nombre, String contrasena) {

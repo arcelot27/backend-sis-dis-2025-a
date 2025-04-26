@@ -2,6 +2,7 @@ package com.corhuila.AgendaManager.controller;
 
 import com.corhuila.AgendaManager.Dto.UsuarioDTO;
 import com.corhuila.AgendaManager.entity.Usuario;
+import com.corhuila.AgendaManager.Dto.FormularioDTO;
 import com.corhuila.AgendaManager.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,11 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
+
+    @PostMapping("/api/labores-academicas")
+    public ResponseEntity<?> guardarLabores(@RequestBody FormularioDTO datosLabores) {
+        return ResponseEntity.ok("Labores guardadas correctamente");
+    }
 
     @GetMapping("/perfil")
     public Usuario getPerfil() {

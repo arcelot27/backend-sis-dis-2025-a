@@ -1,4 +1,4 @@
-package com.corhuila.AgendaManager.controller;  // Ajusta el paquete según tu estructura
+package com.corhuila.AgendaManager.controller; 
 
 import java.util.Map;
 
