@@ -20,17 +20,6 @@ public class FormularioService {
         entity.setPrograma(dto.programa);
         entity.setFecha(dto.fecha);
         entity.setPeriodo(dto.periodo);
-        entity.setNombreAsignatura(dto.nombreAsignatura);
-        entity.setGrupo(dto.grupo);
-        entity.setSede(dto.sede);
-        entity.setHorasSemanales(dto.horasSemanales);
-        entity.setHorasSemestrales(dto.horasSemestrales);
-        entity.setPreparacionClases(dto.preparacionClases);
-        entity.setEvaluacionAprendizajes(dto.evaluacionAprendizajes);
-        entity.setGestionEventos(dto.gestionEventos);
-        entity.setAcompanamiento(dto.acompanamiento);
-        entity.setCursosFortalecimiento(dto.cursosFortalecimiento);
-        entity.setAsesoriaEmprendimiento(dto.asesoriaEmprendimiento);
         return repository.save(entity);
     }
 }

@@ -9,7 +9,9 @@ public class FormularioEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_formulario")
+    private Long id_formulario;
+    
 
     private String nombres;
     private String apellidos;
@@ -18,29 +20,14 @@ public class FormularioEntity {
     private LocalDate fecha;
     private String periodo;
 
-    private String nombreAsignatura;
-    private String grupo;
-    private String sede;
-    private String horasSemanales;
-    private String horasSemestrales;
-
-
-    private String preparacionClases;
-    private String evaluacionAprendizajes;
-    private String gestionEventos;
-
-    private String acompanamiento;
-    private String cursosFortalecimiento;
-    private String asesoriaEmprendimiento;
-
-    // Getters y Setters
+   
 
     public Long getId() {
-        return id;
+        return id_formulario;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long id_formulario) {
+        this.id_formulario = id_formulario;
     }
 
     public String getNombres() {
@@ -89,93 +76,5 @@ public class FormularioEntity {
 
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
-    }
-
-    public String getNombreAsignatura() {
-        return nombreAsignatura;
-    }
-
-    public void setNombreAsignatura(String nombreAsignatura) {
-        this.nombreAsignatura = nombreAsignatura;
-    }
-
-    public String getGrupo() {
-        return grupo;
-    }
-
-    public void setGrupo(String grupo) {
-        this.grupo = grupo;
-    }
-
-    public String getSede() {
-        return sede;
-    }
-
-    public void setSede(String sede) {
-        this.sede = sede;
-    }
-
-    public String getHorasSemanales() {
-        return horasSemanales;
-    }
-
-    public void setHorasSemanales(String horasSemanales) {
-        this.horasSemanales = horasSemanales;
-    }
-
-    public String getHorasSemestrales() {
-        return horasSemestrales;
-    }
-
-    public void setHorasSemestrales(String horasSemestrales) {
-        this.horasSemestrales = horasSemestrales;
-    }
-
-    public String getPreparacionClases() {
-        return preparacionClases;
-    }
-
-    public void setPreparacionClases(String preparacionClases) {
-        this.preparacionClases = preparacionClases;
-    }
-
-    public String getEvaluacionAprendizajes() {
-        return evaluacionAprendizajes;
-    }
-
-    public void setEvaluacionAprendizajes(String evaluacionAprendizajes) {
-        this.evaluacionAprendizajes = evaluacionAprendizajes;
-    }
-
-    public String getGestionEventos() {
-        return gestionEventos;
-    }
-
-    public void setGestionEventos(String gestionEventos) {
-        this.gestionEventos = gestionEventos;
-    }
-
-    public String getAcompanamiento() {
-        return acompanamiento;
-    }
-
-    public void setAcompanamiento(String acompanamiento) {
-        this.acompanamiento = acompanamiento;
-    }
-
-    public String getCursosFortalecimiento() {
-        return cursosFortalecimiento;
-    }
-
-    public void setCursosFortalecimiento(String cursosFortalecimiento) {
-        this.cursosFortalecimiento = cursosFortalecimiento;
-    }
-
-    public String getAsesoriaEmprendimiento() {
-        return asesoriaEmprendimiento;
-    }
-
-    public void setAsesoriaEmprendimiento(String asesoriaEmprendimiento) {
-        this.asesoriaEmprendimiento = asesoriaEmprendimiento;
     }
 }

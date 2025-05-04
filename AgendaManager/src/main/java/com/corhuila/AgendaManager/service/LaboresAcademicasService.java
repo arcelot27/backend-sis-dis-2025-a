@@ -12,7 +12,7 @@ public class LaboresAcademicasService {
     @Autowired
     private LaboresAcademicasRepository repository;
 
-    public void guardarLabores(LaboresAcademicasDTO dto) {
+    public void guardarLaboresAcademicas(LaboresAcademicasDTO dto) {
         LaboresAcademicasEntity entity = new LaboresAcademicasEntity();
 
         entity.setNombreAsignatura(dto.getNombreAsignatura());

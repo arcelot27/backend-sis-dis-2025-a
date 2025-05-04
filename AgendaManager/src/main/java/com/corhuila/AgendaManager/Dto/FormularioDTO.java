@@ -3,6 +3,7 @@ package com.corhuila.AgendaManager.Dto;
 import java.time.LocalDate;
 
 public class FormularioDTO {
+    private Integer id_formulario;
     public String nombres;
     public String apellidos;
     public String facultad;
@@ -10,21 +11,7 @@ public class FormularioDTO {
     public LocalDate fecha;
     public String periodo;
 
-    public String nombreAsignatura;
-    public String grupo;
-    public String sede;
-    public String horasSemanales;
-    public String horasSemestrales;
-
-    public String preparacionClases;
-    public String evaluacionAprendizajes;
-    public String gestionEventos;
-
-    public String acompanamiento;
-    public String cursosFortalecimiento;
-    public String asesoriaEmprendimiento;
-
-// Getters y Setters
+   
 
     public String getNombres() {
         return nombres;
@@ -72,93 +59,5 @@ public class FormularioDTO {
 
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
-    }
-
-    public String getNombreAsignatura() {
-        return nombreAsignatura;
-    }
-
-    public void setNombreAsignatura(String nombreAsignatura) {
-        this.nombreAsignatura = nombreAsignatura;
-    }
-
-    public String getGrupo() {
-        return grupo;
-    }
-
-    public void setGrupo(String grupo) {
-        this.grupo = grupo;
-    }
-
-    public String getSede() {
-        return sede;
-    }
-
-    public void setSede(String sede) {
-        this.sede = sede;
-    }
-
-    public String getHorasSemanales() {
-        return horasSemanales;
-    }
-
-    public void setHorasSemanales(String horasSemanales) {
-        this.horasSemanales = horasSemanales;
-    }
-
-    public String getHorasSemestrales() {
-        return horasSemestrales;
-    }
-
-    public void setHorasSemestrales(String horasSemestrales) {
-        this.horasSemestrales = horasSemestrales;
-    }
-
-    public String getPreparacionClases() {
-        return preparacionClases;
-    }
-
-    public void setPreparacionClases(String preparacionClases) {
-        this.preparacionClases = preparacionClases;
-    }
-
-    public String getEvaluacionAprendizajes() {
-        return evaluacionAprendizajes;
-    }
-
-    public void setEvaluacionAprendizajes(String evaluacionAprendizajes) {
-        this.evaluacionAprendizajes = evaluacionAprendizajes;
-    }
-
-    public String getGestionEventos() {
-        return gestionEventos;
-    }
-
-    public void setGestionEventos(String gestionEventos) {
-        this.gestionEventos = gestionEventos;
-    }
-
-    public String getAcompanamiento() {
-        return acompanamiento;
-    }
-
-    public void setAcompanamiento(String acompanamiento) {
-        this.acompanamiento = acompanamiento;
-    }
-
-    public String getCursosFortalecimiento() {
-        return cursosFortalecimiento;
-    }
-
-    public void setCursosFortalecimiento(String cursosFortalecimiento) {
-        this.cursosFortalecimiento = cursosFortalecimiento;
-    }
-
-    public String getAsesoriaEmprendimiento() {
-        return asesoriaEmprendimiento;
-    }
-
-    public void setAsesoriaEmprendimiento(String asesoriaEmprendimiento) {
-        this.asesoriaEmprendimiento = asesoriaEmprendimiento;
-    }
+    }  
 }

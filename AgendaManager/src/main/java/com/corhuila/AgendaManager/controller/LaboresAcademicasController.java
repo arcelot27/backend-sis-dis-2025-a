@@ -12,11 +12,15 @@ import org.springframework.web.bind.annotation.*;
 public class LaboresAcademicasController {
 
     @Autowired
-    private LaboresAcademicasService service;
+    private LaboresAcademicasService service;   
 
     @PostMapping
-    public ResponseEntity<?> guardarLabores(@RequestBody LaboresAcademicasDTO dto) {
-        service.guardarLabores(dto);
+    public ResponseEntity<?> guardarLaboresAcademicas(@RequestBody LaboresAcademicasDTO dto) {
+        if (dto.getNombreAsignatura() == null || dto.getPrograma() == null || dto.getHorasSemanales() == null) {
+            return ResponseEntity.badRequest().body("Faltan campos obligatorios");
+        }
+        service.guardarLaboresAcademicas(dto);
         return ResponseEntity.ok().body("{\"mensaje\":\"Labores académicas guardadas correctamente\"}");
     }
+    
 }

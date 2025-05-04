@@ -16,13 +16,19 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+   
+
+
+
+
+
     @PostMapping("/api/labores-academicas")
-    public ResponseEntity<?> guardarLabores(@RequestBody FormularioDTO datosLabores) {
+    public ResponseEntity<?> guardarLaboresacademicas(@RequestBody FormularioDTO datosLabores) {
         return ResponseEntity.ok("Labores guardadas correctamente");
     }
 
     @GetMapping("/perfil")
-    public Usuario getPerfil() {
+    public Usuario getPerfilUsuario() {
         return usuarioService.obtenerPerfil();
     }
 
@@ -31,6 +37,7 @@ public class UsuarioController {
     public ResponseEntity<Usuario> actualizarUsuario(@PathVariable Integer id, @RequestBody UsuarioDTO usuarioDTO) {
         Usuario actualizado = usuarioService.actualizarUsuario(id, usuarioDTO.getNombre(), usuarioDTO.getContrasena());
         return ResponseEntity.ok(actualizado);
+    
     }
 
 }

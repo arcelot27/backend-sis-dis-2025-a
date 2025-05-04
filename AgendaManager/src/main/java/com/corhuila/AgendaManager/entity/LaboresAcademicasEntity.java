@@ -47,7 +47,7 @@ public class LaboresAcademicasEntity {
     private String emprendDescripcion;
     private String emprendProducto;
 
-    // Getters y Setters
+   
 
     public Long getIdLabores() { return idLabores; }
     public void setIdLabores(Long idLabores) { this.idLabores = idLabores; }

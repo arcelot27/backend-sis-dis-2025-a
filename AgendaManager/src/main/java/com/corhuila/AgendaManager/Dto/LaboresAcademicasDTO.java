@@ -1,7 +1,7 @@
 package com.corhuila.AgendaManager.Dto;
 
 public class LaboresAcademicasDTO {
-
+    private Integer id;
     private String nombreAsignatura;
     private String programa;
     private String grupo;
@@ -39,7 +39,7 @@ public class LaboresAcademicasDTO {
     private String emprendDescripcion;
     private String emprendProducto;
 
-    // Getters y Setters
+ 
 
     public String getNombreAsignatura() { return nombreAsignatura; }
     public void setNombreAsignatura(String nombreAsignatura) { this.nombreAsignatura = nombreAsignatura; }
