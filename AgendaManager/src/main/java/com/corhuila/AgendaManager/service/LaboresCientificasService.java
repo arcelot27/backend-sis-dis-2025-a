@@ -20,7 +20,7 @@ public class LaboresCientificasService {
     public void guardarLabores(LaboresCientificasDTO dto) {
         LaboresCientificasEntity entity = new LaboresCientificasEntity();
 
-        // 1. Buscar el formulario por ID
+     
         FormularioEntity formulario = formularioRepository.findById(dto.getId_formulario()).orElse(null);
         if (formulario == null) {
             throw new RuntimeException("Formulario no encontrado con ID: " + dto.getId_formulario());

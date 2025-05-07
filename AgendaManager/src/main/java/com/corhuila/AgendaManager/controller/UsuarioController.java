@@ -16,11 +16,6 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-   
-
-
-
-
 
     @PostMapping("/api/labores-academicas")
     public ResponseEntity<?> guardarLaboresacademicas(@RequestBody FormularioDTO datosLabores) {

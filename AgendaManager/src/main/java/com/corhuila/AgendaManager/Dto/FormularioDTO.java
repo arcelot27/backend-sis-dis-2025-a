@@ -11,7 +11,13 @@ public class FormularioDTO {
     public LocalDate fecha;
     public String periodo;
 
-   
+    public Integer getId_formulario() {
+        return id_formulario;
+    }
+
+    public void setId_formulario(Integer id_formulario) {
+        this.id_formulario = id_formulario;
+    }
 
     public String getNombres() {
         return nombres;

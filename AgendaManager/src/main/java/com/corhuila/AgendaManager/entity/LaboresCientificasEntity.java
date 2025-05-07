@@ -14,37 +14,37 @@ public class LaboresCientificasEntity {
     @JoinColumn(name = "id_formulario", referencedColumnName = "id_formulario")
     private FormularioEntity formulario;
 
-    // ---------- SEMILLEROS ----------
+   
     private int semilleros_horas_semana;
     private int semilleros_horas_semestre;
     private String semilleros_descripcion;
     private String semilleros_producto;
 
-    // ---------- PROPUESTAS ----------
+
     private int propuestas_horas_semana;
     private int propuestas_horas_semestre;
     private String propuestas_descripcion;
     private String propuestas_producto;
 
-    // ---------- PROYECTOS ----------
+   
     private int proyectos_horas_semana;
     private int proyectos_horas_semestre;
     private String proyectos_descripcion;
     private String proyectos_producto;
 
-    // ---------- GRUPO ----------
+
     private int grupo_horas_semana;
     private int grupo_horas_semestre;
     private String grupo_descripcion;
     private String grupo_producto;
 
-    // ---------- ARTICULOS ----------
+
     private int articulos_horas_semana;
     private int articulos_horas_semestre;
     private String articulos_descripcion;
     private String articulos_producto;
 
-    // ===================== GETTERS & SETTERS =====================
+    
 
     public Long getId_cientificas() {
         return id_cientificas;
