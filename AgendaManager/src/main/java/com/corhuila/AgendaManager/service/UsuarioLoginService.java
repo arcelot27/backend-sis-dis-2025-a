@@ -14,8 +14,9 @@ public class UsuarioLoginService implements IUsuarioLoginService {
     private UsuarioLoginRepository usuarioLoginRepository;
 
     @Override
-    public Optional<UsuarioLoginEntity> validarCredenciales(String usuario, String contrasena) {
-        return usuarioLoginRepository.findByUsuarioAndContrasena(usuario, contrasena);
+    public Optional<UsuarioLoginEntity> validarCredenciales(String correo, String contrasena) {
+        return usuarioLoginRepository.findByCorreoAndContrasena(correo, contrasena);
     }
+
 }
 

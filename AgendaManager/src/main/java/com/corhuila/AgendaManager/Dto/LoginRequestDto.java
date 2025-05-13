@@ -1,22 +1,12 @@
 package com.corhuila.AgendaManager.Dto;
 
 public class LoginRequestDto {
-    private String usuario;
+    private String correo;
     private String contrasena;
 
-    public String getUsuario() {
-        return usuario;
-    }
+    public String getCorreo() { return correo; }
+    public void setCorreo(String correo) { this.correo = correo; }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
+    public String getContrasena() { return contrasena; }
+    public void setContrasena(String contrasena) { this.contrasena = contrasena; }
 }

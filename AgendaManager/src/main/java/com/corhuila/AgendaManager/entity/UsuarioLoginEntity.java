@@ -8,49 +8,34 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "usuario_login")
+@Table(name = "usuario")
 public class UsuarioLoginEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_usuario;
 
-    private String usuario;
+    private String nombre;
+    private String correo;
     private String contrasena;
     private String rol;
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId_usuario() { return id_usuario; }
+    public void setId_usuario(Long id_usuario) { this.id_usuario = id_usuario; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public String getCorreo() { return correo; }
+    public void setCorreo(String correo) { this.correo = correo; }
 
-    public String getUsuario() {
-        return usuario;
-    }
+    public String getContrasena() { return contrasena; }
+    public void setContrasena(String contrasena) { this.contrasena = contrasena; }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
+    public String getRol() { return rol; }
+    public void setRol(String rol) { this.rol = rol; }
 
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
 }
+
 
 
     

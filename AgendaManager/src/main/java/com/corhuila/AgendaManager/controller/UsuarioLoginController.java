@@ -19,14 +19,18 @@ public class UsuarioLoginController {
     private IUsuarioLoginService usuarioLoginService;
 
     @PostMapping
-    public ResponseEntity<LoginResponseDto> login(@RequestBody LoginRequestDto requestDto) {
-        Optional<UsuarioLoginEntity> usuario = usuarioLoginService.validarCredenciales(
-                requestDto.getUsuario(), requestDto.getContrasena());
+    public ResponseEntity<?> login(@RequestBody LoginRequestDto requestDto) {
+        try {
+            Optional<UsuarioLoginEntity> usuario = usuarioLoginService.validarCredenciales(
+                    requestDto.getCorreo(), requestDto.getContrasena());
 
-        if (usuario.isPresent()) {
-            return ResponseEntity.ok(new LoginResponseDto("Acceso concedido", usuario.get().getRol()));
-        } else {
-            return ResponseEntity.status(401).body(new LoginResponseDto("Correo o contraseña incorrectos", null));
+            if (usuario.isPresent()) {
+                return ResponseEntity.ok(new LoginResponseDto("Acceso concedido", usuario.get().getRol()));
+            } else {
+                return ResponseEntity.status(401).body(new LoginResponseDto("Correo o contraseña incorrectos", null));
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error interno del servidor: " + e.getMessage());
         }
     }
 }

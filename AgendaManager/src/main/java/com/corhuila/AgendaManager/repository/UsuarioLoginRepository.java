@@ -9,7 +9,7 @@ import com.corhuila.AgendaManager.entity.UsuarioLoginEntity;
 
 @Repository
 public interface UsuarioLoginRepository extends JpaRepository<UsuarioLoginEntity, Long> {
-    Optional<UsuarioLoginEntity> findByUsuarioAndContrasena(String usuario, String contrasena);
+    Optional<UsuarioLoginEntity> findByCorreoAndContrasena(String correo, String contrasena);
 }
 
 
