@@ -1,28 +1,21 @@
 package com.corhuila.AgendaManager.service;
 
+import com.corhuila.AgendaManager.entity.UsuarioLoginEntity;
+import com.corhuila.AgendaManager.repository.UsuarioLoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.corhuila.AgendaManager.Dto.LoginRequestDto;
-import com.corhuila.AgendaManager.Dto.LoginResponseDto;
-import com.corhuila.AgendaManager.entity.UsuarioLoginEntity;
-import com.corhuila.AgendaManager.repository.UsuarioLoginRepository;
+import java.util.Optional;
 
 @Service
-public class UsuarioLoginService {
+public class UsuarioLoginService implements IUsuarioLoginService {
 
     @Autowired
-    private UsuarioLoginRepository repository;
+    private UsuarioLoginRepository usuarioLoginRepository;
 
-    public LoginResponseDto login(LoginRequestDto request) {
-        UsuarioLoginEntity user = repository.findByUsuario(request.getUsuario())
-            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-
-        if (!user.getContrasena().equals(request.getContrasena())) {
-            throw new RuntimeException("Contraseña incorrecta");
-        }
-
-        return new LoginResponseDto("Login exitoso", user.getRol());
+    @Override
+    public Optional<UsuarioLoginEntity> validarCredenciales(String usuario, String contrasena) {
+        return usuarioLoginRepository.findByUsuarioAndContrasena(usuario, contrasena);
     }
 }
 
