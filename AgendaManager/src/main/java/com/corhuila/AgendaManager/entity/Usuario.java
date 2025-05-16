@@ -6,36 +6,57 @@ import jakarta.persistence.*;
 @Table(name = "usuario")
 public class Usuario {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_Usuario") 
-    private Integer id;
+    @Column(name = "id_usuario")
+    private Long id;
 
-    @Column(name = "nombre")
+
     private String nombre;
-
-    @Column(name = "correo")
     private String correo;
-
-    @Column(name = "Contrasena")
     private String contrasena;
-
-    @Column(name = "rol")
     private String rol;
 
+    // Getters y Setters
 
-    public Integer getId() { return id; }
-    public void setId(Integer id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getRol() { return rol; }
-    public void setRol(String rol) { this.rol = rol; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public String getNombre() {
+        return nombre;
+    }
 
-    public String getCorreo() { return correo; }
-    public void setCorreo(String correo) { this.correo = correo; }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-    public String getContrasena() { return contrasena; }
-    public void setContrasena(String contrasena) { this.contrasena = contrasena; }
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
 }

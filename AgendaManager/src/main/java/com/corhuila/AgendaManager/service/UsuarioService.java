@@ -5,7 +5,7 @@ import com.corhuila.AgendaManager.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -13,16 +13,19 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public Usuario obtenerPerfil() {
-        List<Usuario> usuarios = usuarioRepository.findAll();
-        return usuarios.isEmpty() ? null : usuarios.get(0); 
+    public Optional<Usuario> validarLogin(String correo, String contrasena) {
+        return usuarioRepository.findByCorreoAndContrasena(correo, contrasena);
     }
 
-    public Usuario actualizarUsuario(Integer id, String nombre, String contrasena) {
-        Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+    public Optional<Usuario> obtenerPerfil(String correo) {
+        return usuarioRepository.findByCorreo(correo);
+    }
+
+    public Usuario actualizarUsuario(Long id, String nombre, String contrasena) {
+        Usuario usuario = usuarioRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
         usuario.setNombre(nombre);
         usuario.setContrasena(contrasena);
         return usuarioRepository.save(usuario);
     }
-
 }

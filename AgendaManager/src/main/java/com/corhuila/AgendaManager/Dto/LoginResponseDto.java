@@ -2,27 +2,27 @@ package com.corhuila.AgendaManager.Dto;
 
 public class LoginResponseDto {
 
-    private String message;
-    private String role;
+    private String mensaje;
+    private String rol;
 
-    public LoginResponseDto(String message, String role) {
-        this.message = message;
-        this.role = role;
+    public LoginResponseDto(String mensaje, String rol) {
+        this.mensaje = mensaje;
+        this.rol = rol;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMensaje() {
+        return mensaje;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
 
-    public String getRole() {
-        return role;
+    public String getRol() {
+        return rol;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }
