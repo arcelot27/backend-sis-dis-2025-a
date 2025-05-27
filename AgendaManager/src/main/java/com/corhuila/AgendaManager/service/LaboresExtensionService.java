@@ -1,7 +1,10 @@
+// LaboresExtensionService.java
 package com.corhuila.AgendaManager.service;
 
 import com.corhuila.AgendaManager.Dto.LaboresExtensionDTO;
+import com.corhuila.AgendaManager.entity.FormularioEntity;
 import com.corhuila.AgendaManager.entity.LaboresExtensionEntity;
+import com.corhuila.AgendaManager.repository.FormularioRepository;
 import com.corhuila.AgendaManager.repository.LaboresExtensionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,10 +15,15 @@ public class LaboresExtensionService {
     @Autowired
     private LaboresExtensionRepository repository;
 
+    @Autowired
+    private FormularioRepository formularioRepository;
+
     public void guardar(LaboresExtensionDTO dto) {
         LaboresExtensionEntity entity = new LaboresExtensionEntity();
 
-        entity.setId_formulario(dto.getId_formulario());
+        FormularioEntity formulario = formularioRepository.findById(dto.getId_formulario())
+                .orElseThrow(() -> new RuntimeException("Formulario no encontrado"));
+        entity.setFormulario(formulario);
 
         entity.setConsultoria_horas_semana(dto.getConsultoria_horas_semana());
         entity.setConsultoria_horas_semestre(dto.getConsultoria_horas_semestre());
@@ -50,4 +58,3 @@ public class LaboresExtensionService {
         repository.save(entity);
     }
 }
-

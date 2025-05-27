@@ -55,4 +55,14 @@ public class LaboresCientificasService {
       
         repository.save(entity);
     }
+
+    public void save(LaboresCientificasDTO dto) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    }
+
+    public void guardarLaboresCientificas(LaboresCientificasDTO dto) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'guardarLaboresCientificas'");
+    }
 }

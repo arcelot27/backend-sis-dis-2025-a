@@ -10,7 +10,18 @@ public class LaboresExtensionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_extension;
 
-    private Long id_formulario;
+    @ManyToOne
+    @JoinColumn(name = "id_formulario")
+    private FormularioEntity formulario;
+
+    public FormularioEntity getFormulario() {
+        return formulario;
+    }
+
+    public void setFormulario(FormularioEntity formulario) {
+        this.formulario = formulario;
+    }
+
 
     private int consultoria_horas_semana;
     private int consultoria_horas_semestre;
@@ -53,13 +64,7 @@ public void setId_extension(Long id_extension) {
     this.id_extension = id_extension;
 }
 
-public Long getId_formulario() {
-    return id_formulario;
-}
 
-public void setId_formulario(Long id_formulario) {
-    this.id_formulario = id_formulario;
-}
 
 public int getConsultoria_horas_semana() {
     return consultoria_horas_semana;

@@ -26,8 +26,7 @@ public class UsuarioController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Usuario datosLogin) {
         Optional<Usuario> usuarioOpt = usuarioService.validarLogin(
-            datosLogin.getCorreo(), datosLogin.getContrasena()
-        );
+                datosLogin.getCorreo(), datosLogin.getContrasena());
 
         if (usuarioOpt.isPresent()) {
             Usuario usuario = usuarioOpt.get();
@@ -37,13 +36,13 @@ public class UsuarioController {
             response.put("rol", usuario.getRol());
             response.put("correo", usuario.getCorreo());
             response.put("nombre", usuario.getNombre());
-            response.put("id", usuario.getId());
+            response.put("id", usuario.getIdUsuario());
             response.put("contrasena", usuario.getContrasena());
 
             return ResponseEntity.ok(response);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                .body(Collections.singletonMap("mensaje", "Correo o contraseña incorrectos"));
+                    .body(Collections.singletonMap("mensaje", "Correo o contraseña incorrectos"));
         }
     }
 
@@ -72,4 +71,16 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
         }
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getUsuarioById(@PathVariable Long id) {
+        Optional<Usuario> usuarioOpt = usuarioRepository.findById(id);
+        if (usuarioOpt.isPresent()) {
+            return ResponseEntity.ok(usuarioOpt.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Collections.singletonMap("mensaje", "Usuario no encontrado"));
+        }
+    }
+
 }

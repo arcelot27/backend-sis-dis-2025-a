@@ -1,7 +1,9 @@
-
+// GestionAcademicasService.java
 package com.corhuila.AgendaManager.service;
 
+import com.corhuila.AgendaManager.entity.FormularioEntity;
 import com.corhuila.AgendaManager.entity.GestionAcademicasEntity;
+import com.corhuila.AgendaManager.repository.FormularioRepository;
 import com.corhuila.AgendaManager.repository.GestionAcademicasRepository;
 import com.corhuila.AgendaManager.Dto.GestionAcademicaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +15,16 @@ public class GestionAcademicasService {
     @Autowired
     private GestionAcademicasRepository repository;
 
+    @Autowired
+    private FormularioRepository formularioRepository;
+
     public void guardarGestionAcademica(GestionAcademicaDTO dto) {
         GestionAcademicasEntity entity = new GestionAcademicasEntity();
 
-        entity.setId_formulario(dto.getIdformulario());
+        FormularioEntity formulario = formularioRepository.findById(dto.getIdformulario())
+                .orElseThrow(() -> new RuntimeException("Formulario no encontrado"));
+        entity.setFormulario(formulario);
+
         entity.setJurado_horas_semana(dto.getJurado_horas_semana());
         entity.setJurado_horas_semestre(dto.getJurado_horas_semestre());
         entity.setJurado_descripcion(dto.getJurado_descripcion());

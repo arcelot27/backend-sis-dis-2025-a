@@ -2,8 +2,8 @@ package com.corhuila.AgendaManager.repository;
 
 import com.corhuila.AgendaManager.entity.LaboresCientificasEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.util.Optional;
 
-@Repository
 public interface LaboresCientificasRepository extends JpaRepository<LaboresCientificasEntity, Long> {
+    Optional<LaboresCientificasEntity> findByFormularioId(Long idFormulario);
 }

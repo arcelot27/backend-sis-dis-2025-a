@@ -11,7 +11,6 @@ public class FormularioEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_formulario")
     private Long id_formulario;
-    
 
     private String nombres;
     private String apellidos;
@@ -20,14 +19,24 @@ public class FormularioEntity {
     private LocalDate fecha;
     private String periodo;
 
-   
+    @Column(name = "id_usuario")
+    private Long idUsuario;
 
-    public Long getId() {
+    // ✅ Getter necesario para el controlador
+    public Long getIdFormulario() {
         return id_formulario;
     }
 
     public void setId(Long id_formulario) {
         this.id_formulario = id_formulario;
+    }
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombres() {
