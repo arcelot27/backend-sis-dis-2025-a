@@ -1,15 +1,27 @@
 package com.corhuila.AgendaManager.Dto;
 
 import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class FormularioDTO {
     private Integer id_formulario;
-    public String nombres;
-    public String apellidos;
-    public String facultad;
-    public String programa;
-    public LocalDate fecha;
-    public String periodo;
+    private String nombres;
+    private String apellidos;
+    private String facultad;
+    private String programa;
+    private LocalDate fecha;
+    private String periodo;
+
+    @JsonProperty("idUsuario")
+    private Long idUsuario;
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
     public Integer getId_formulario() {
         return id_formulario;
@@ -65,5 +77,5 @@ public class FormularioDTO {
 
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
-    }  
+    }
 }

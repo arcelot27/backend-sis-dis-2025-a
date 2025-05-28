@@ -39,95 +39,263 @@ public class LaboresAcademicasDTO {
     private String emprendDescripcion;
     private String emprendProducto;
 
- 
+    private Long id_formulario;
+    private Long idUsuario;
 
-    public String getNombreAsignatura() { return nombreAsignatura; }
-    public void setNombreAsignatura(String nombreAsignatura) { this.nombreAsignatura = nombreAsignatura; }
+    // Getters y Setters
+    public Long getId_formulario() {
+        return id_formulario;
+    }
 
-    public String getPrograma() { return programa; }
-    public void setPrograma(String programa) { this.programa = programa; }
+    public void setId_formulario(Long id_formulario) {
+        this.id_formulario = id_formulario;
+    }
 
-    public String getGrupo() { return grupo; }
-    public void setGrupo(String grupo) { this.grupo = grupo; }
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
 
-    public String getSede() { return sede; }
-    public void setSede(String sede) { this.sede = sede; }
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-    public Integer getHorasSemanales() { return horasSemanales; }
-    public void setHorasSemanales(Integer horasSemanales) { this.horasSemanales = horasSemanales; }
+    public String getNombreAsignatura() {
+        return nombreAsignatura;
+    }
 
-    public Integer getHorasSemestrales() { return horasSemestrales; }
-    public void setHorasSemestrales(Integer horasSemestrales) { this.horasSemestrales = horasSemestrales; }
+    public void setNombreAsignatura(String nombreAsignatura) {
+        this.nombreAsignatura = nombreAsignatura;
+    }
 
-    public Integer getPrepHorasSemana() { return prepHorasSemana; }
-    public void setPrepHorasSemana(Integer prepHorasSemana) { this.prepHorasSemana = prepHorasSemana; }
+    public String getPrograma() {
+        return programa;
+    }
 
-    public Integer getPrepHorasSemestre() { return prepHorasSemestre; }
-    public void setPrepHorasSemestre(Integer prepHorasSemestre) { this.prepHorasSemestre = prepHorasSemestre; }
+    public void setPrograma(String programa) {
+        this.programa = programa;
+    }
 
-    public String getPrepDescripcion() { return prepDescripcion; }
-    public void setPrepDescripcion(String prepDescripcion) { this.prepDescripcion = prepDescripcion; }
+    public String getGrupo() {
+        return grupo;
+    }
 
-    public String getPrepProducto() { return prepProducto; }
-    public void setPrepProducto(String prepProducto) { this.prepProducto = prepProducto; }
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
+    }
 
-    public Integer getEvalHorasSemana() { return evalHorasSemana; }
-    public void setEvalHorasSemana(Integer evalHorasSemana) { this.evalHorasSemana = evalHorasSemana; }
+    public String getSede() {
+        return sede;
+    }
 
-    public Integer getEvalHorasSemestre() { return evalHorasSemestre; }
-    public void setEvalHorasSemestre(Integer evalHorasSemestre) { this.evalHorasSemestre = evalHorasSemestre; }
+    public void setSede(String sede) {
+        this.sede = sede;
+    }
 
-    public String getEvalDescripcion() { return evalDescripcion; }
-    public void setEvalDescripcion(String evalDescripcion) { this.evalDescripcion = evalDescripcion; }
+    public Integer getHorasSemanales() {
+        return horasSemanales;
+    }
 
-    public String getEvalProducto() { return evalProducto; }
-    public void setEvalProducto(String evalProducto) { this.evalProducto = evalProducto; }
+    public void setHorasSemanales(Integer horasSemanales) {
+        this.horasSemanales = horasSemanales;
+    }
 
-    public Integer getEventosHorasSemana() { return eventosHorasSemana; }
-    public void setEventosHorasSemana(Integer eventosHorasSemana) { this.eventosHorasSemana = eventosHorasSemana; }
+    public Integer getHorasSemestrales() {
+        return horasSemestrales;
+    }
 
-    public Integer getEventosHorasSemestre() { return eventosHorasSemestre; }
-    public void setEventosHorasSemestre(Integer eventosHorasSemestre) { this.eventosHorasSemestre = eventosHorasSemestre; }
+    public void setHorasSemestrales(Integer horasSemestrales) {
+        this.horasSemestrales = horasSemestrales;
+    }
 
-    public String getEventosDescripcion() { return eventosDescripcion; }
-    public void setEventosDescripcion(String eventosDescripcion) { this.eventosDescripcion = eventosDescripcion; }
+    public Integer getPrepHorasSemana() {
+        return prepHorasSemana;
+    }
 
-    public String getEventosProducto() { return eventosProducto; }
-    public void setEventosProducto(String eventosProducto) { this.eventosProducto = eventosProducto; }
+    public void setPrepHorasSemana(Integer prepHorasSemana) {
+        this.prepHorasSemana = prepHorasSemana;
+    }
 
-    public Integer getAcompHorasSemana() { return acompHorasSemana; }
-    public void setAcompHorasSemana(Integer acompHorasSemana) { this.acompHorasSemana = acompHorasSemana; }
+    public Integer getPrepHorasSemestre() {
+        return prepHorasSemestre;
+    }
 
-    public Integer getAcompHorasSemestre() { return acompHorasSemestre; }
-    public void setAcompHorasSemestre(Integer acompHorasSemestre) { this.acompHorasSemestre = acompHorasSemestre; }
+    public void setPrepHorasSemestre(Integer prepHorasSemestre) {
+        this.prepHorasSemestre = prepHorasSemestre;
+    }
 
-    public String getAcompDescripcion() { return acompDescripcion; }
-    public void setAcompDescripcion(String acompDescripcion) { this.acompDescripcion = acompDescripcion; }
+    public String getPrepDescripcion() {
+        return prepDescripcion;
+    }
 
-    public String getAcompProducto() { return acompProducto; }
-    public void setAcompProducto(String acompProducto) { this.acompProducto = acompProducto; }
+    public void setPrepDescripcion(String prepDescripcion) {
+        this.prepDescripcion = prepDescripcion;
+    }
 
-    public Integer getCursosHorasSemana() { return cursosHorasSemana; }
-    public void setCursosHorasSemana(Integer cursosHorasSemana) { this.cursosHorasSemana = cursosHorasSemana; }
+    public String getPrepProducto() {
+        return prepProducto;
+    }
 
-    public Integer getCursosHorasSemestre() { return cursosHorasSemestre; }
-    public void setCursosHorasSemestre(Integer cursosHorasSemestre) { this.cursosHorasSemestre = cursosHorasSemestre; }
+    public void setPrepProducto(String prepProducto) {
+        this.prepProducto = prepProducto;
+    }
 
-    public String getCursosDescripcion() { return cursosDescripcion; }
-    public void setCursosDescripcion(String cursosDescripcion) { this.cursosDescripcion = cursosDescripcion; }
+    public Integer getEvalHorasSemana() {
+        return evalHorasSemana;
+    }
 
-    public String getCursosProducto() { return cursosProducto; }
-    public void setCursosProducto(String cursosProducto) { this.cursosProducto = cursosProducto; }
+    public void setEvalHorasSemana(Integer evalHorasSemana) {
+        this.evalHorasSemana = evalHorasSemana;
+    }
 
-    public Integer getEmprendHorasSemana() { return emprendHorasSemana; }
-    public void setEmprendHorasSemana(Integer emprendHorasSemana) { this.emprendHorasSemana = emprendHorasSemana; }
+    public Integer getEvalHorasSemestre() {
+        return evalHorasSemestre;
+    }
 
-    public Integer getEmprendHorasSemestre() { return emprendHorasSemestre; }
-    public void setEmprendHorasSemestre(Integer emprendHorasSemestre) { this.emprendHorasSemestre = emprendHorasSemestre; }
+    public void setEvalHorasSemestre(Integer evalHorasSemestre) {
+        this.evalHorasSemestre = evalHorasSemestre;
+    }
 
-    public String getEmprendDescripcion() { return emprendDescripcion; }
-    public void setEmprendDescripcion(String emprendDescripcion) { this.emprendDescripcion = emprendDescripcion; }
+    public String getEvalDescripcion() {
+        return evalDescripcion;
+    }
 
-    public String getEmprendProducto() { return emprendProducto; }
-    public void setEmprendProducto(String emprendProducto) { this.emprendProducto = emprendProducto;}
+    public void setEvalDescripcion(String evalDescripcion) {
+        this.evalDescripcion = evalDescripcion;
+    }
+
+    public String getEvalProducto() {
+        return evalProducto;
+    }
+
+    public void setEvalProducto(String evalProducto) {
+        this.evalProducto = evalProducto;
+    }
+
+    public Integer getEventosHorasSemana() {
+        return eventosHorasSemana;
+    }
+
+    public void setEventosHorasSemana(Integer eventosHorasSemana) {
+        this.eventosHorasSemana = eventosHorasSemana;
+    }
+
+    public Integer getEventosHorasSemestre() {
+        return eventosHorasSemestre;
+    }
+
+    public void setEventosHorasSemestre(Integer eventosHorasSemestre) {
+        this.eventosHorasSemestre = eventosHorasSemestre;
+    }
+
+    public String getEventosDescripcion() {
+        return eventosDescripcion;
+    }
+
+    public void setEventosDescripcion(String eventosDescripcion) {
+        this.eventosDescripcion = eventosDescripcion;
+    }
+
+    public String getEventosProducto() {
+        return eventosProducto;
+    }
+
+    public void setEventosProducto(String eventosProducto) {
+        this.eventosProducto = eventosProducto;
+    }
+
+    public Integer getAcompHorasSemana() {
+        return acompHorasSemana;
+    }
+
+    public void setAcompHorasSemana(Integer acompHorasSemana) {
+        this.acompHorasSemana = acompHorasSemana;
+    }
+
+    public Integer getAcompHorasSemestre() {
+        return acompHorasSemestre;
+    }
+
+    public void setAcompHorasSemestre(Integer acompHorasSemestre) {
+        this.acompHorasSemestre = acompHorasSemestre;
+    }
+
+    public String getAcompDescripcion() {
+        return acompDescripcion;
+    }
+
+    public void setAcompDescripcion(String acompDescripcion) {
+        this.acompDescripcion = acompDescripcion;
+    }
+
+    public String getAcompProducto() {
+        return acompProducto;
+    }
+
+    public void setAcompProducto(String acompProducto) {
+        this.acompProducto = acompProducto;
+    }
+
+    public Integer getCursosHorasSemana() {
+        return cursosHorasSemana;
+    }
+
+    public void setCursosHorasSemana(Integer cursosHorasSemana) {
+        this.cursosHorasSemana = cursosHorasSemana;
+    }
+
+    public Integer getCursosHorasSemestre() {
+        return cursosHorasSemestre;
+    }
+
+    public void setCursosHorasSemestre(Integer cursosHorasSemestre) {
+        this.cursosHorasSemestre = cursosHorasSemestre;
+    }
+
+    public String getCursosDescripcion() {
+        return cursosDescripcion;
+    }
+
+    public void setCursosDescripcion(String cursosDescripcion) {
+        this.cursosDescripcion = cursosDescripcion;
+    }
+
+    public String getCursosProducto() {
+        return cursosProducto;
+    }
+
+    public void setCursosProducto(String cursosProducto) {
+        this.cursosProducto = cursosProducto;
+    }
+
+    public Integer getEmprendHorasSemana() {
+        return emprendHorasSemana;
+    }
+
+    public void setEmprendHorasSemana(Integer emprendHorasSemana) {
+        this.emprendHorasSemana = emprendHorasSemana;
+    }
+
+    public Integer getEmprendHorasSemestre() {
+        return emprendHorasSemestre;
+    }
+
+    public void setEmprendHorasSemestre(Integer emprendHorasSemestre) {
+        this.emprendHorasSemestre = emprendHorasSemestre;
+    }
+
+    public String getEmprendDescripcion() {
+        return emprendDescripcion;
+    }
+
+    public void setEmprendDescripcion(String emprendDescripcion) {
+        this.emprendDescripcion = emprendDescripcion;
+    }
+
+    public String getEmprendProducto() {
+        return emprendProducto;
+    }
+
+    public void setEmprendProducto(String emprendProducto) {
+        this.emprendProducto = emprendProducto;
+    }
 }

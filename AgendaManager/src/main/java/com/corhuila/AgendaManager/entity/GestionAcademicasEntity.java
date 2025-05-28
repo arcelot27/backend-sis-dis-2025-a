@@ -10,7 +10,19 @@ public class GestionAcademicasEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_gestion;
 
-    private Long id_formulario;
+
+    @ManyToOne
+    @JoinColumn(name = "id_formulario")
+    private FormularioEntity formulario;
+
+    public FormularioEntity getFormulario() {
+        return formulario;
+    }
+
+    public void setFormulario(FormularioEntity formulario) {
+        this.formulario = formulario;
+    }
+
 
     private int jurado_horas_semana;
     private int jurado_horas_semestre;
@@ -75,13 +87,6 @@ public class GestionAcademicasEntity {
         this.id_gestion = id_gestion;
     }
     
-    public Long getId_formulario() {
-        return id_formulario;
-    }
-    
-    public void setId_formulario(Long id_formulario) {
-        this.id_formulario = id_formulario;
-    }
 
     public int getJurado_horas_semana() {
         return jurado_horas_semana;

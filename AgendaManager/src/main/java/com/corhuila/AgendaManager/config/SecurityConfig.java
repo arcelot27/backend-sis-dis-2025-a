@@ -12,10 +12,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+            .cors(Customizer.withDefaults())
             .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
-            .csrf(csrf -> csrf.disable());
+            .csrf(csrf -> csrf.disable()); // permite peticiones POST sin token CSRF
 
         return http.build();
     }
 }
-

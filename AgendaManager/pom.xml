@@ -41,6 +41,7 @@
             <artifactId>mysql-connector-j</artifactId>
             <version>8.0.33</version>
         </dependency>
+
         
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -55,6 +56,14 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+
+          <!-- Agrega esto dentro de <dependencies> -->
+        <dependency>
+             <groupId>org.apache.poi</groupId>
+           <artifactId>poi-ooxml</artifactId>
+            <version>5.2.5</version>
+        </dependency>
+
         
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -69,6 +78,16 @@
     </dependencies>
 
     <build>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include> <!-- Incluye TODO: .properties, .xlsx, etc. -->
+                </includes>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

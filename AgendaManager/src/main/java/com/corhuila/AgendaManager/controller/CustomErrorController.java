@@ -5,8 +5,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "http://agendamanager.s3-website.us-east-2.amazonaws.com")
+@RestController
 @Controller
 public class CustomErrorController implements ErrorController {
 

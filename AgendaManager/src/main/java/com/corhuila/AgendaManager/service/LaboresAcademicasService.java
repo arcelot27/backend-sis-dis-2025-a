@@ -1,7 +1,10 @@
+// LaboresAcademicasService.java
 package com.corhuila.AgendaManager.service;
 
 import com.corhuila.AgendaManager.Dto.LaboresAcademicasDTO;
+import com.corhuila.AgendaManager.entity.FormularioEntity;
 import com.corhuila.AgendaManager.entity.LaboresAcademicasEntity;
+import com.corhuila.AgendaManager.repository.FormularioRepository;
 import com.corhuila.AgendaManager.repository.LaboresAcademicasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,8 +15,15 @@ public class LaboresAcademicasService {
     @Autowired
     private LaboresAcademicasRepository repository;
 
+    @Autowired
+    private FormularioRepository formularioRepository;
+
     public void guardarLaboresAcademicas(LaboresAcademicasDTO dto) {
         LaboresAcademicasEntity entity = new LaboresAcademicasEntity();
+
+        FormularioEntity formulario = formularioRepository.findById(dto.getId_formulario())
+                .orElseThrow(() -> new RuntimeException("Formulario no encontrado"));
+        entity.setFormulario(formulario);
 
         entity.setNombreAsignatura(dto.getNombreAsignatura());
         entity.setPrograma(dto.getPrograma());

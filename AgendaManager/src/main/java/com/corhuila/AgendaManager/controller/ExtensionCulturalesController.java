@@ -1,9 +1,9 @@
 package com.corhuila.AgendaManager.controller;
 
-import com.corhuila.AgendaManager.Dto.GestionAcademicaDTO;
+import com.corhuila.AgendaManager.Dto.LaboresExtensionDTO;
 import com.corhuila.AgendaManager.entity.HistorialFormulario;
 import com.corhuila.AgendaManager.service.HistorialFormularioService;
-import com.corhuila.AgendaManager.service.GestionAcademicasService;
+import com.corhuila.AgendaManager.service.LaboresExtensionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,30 +11,31 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 
 @RestController
-@RequestMapping("/api/labores-gestion-academica")
+@RequestMapping("/api/labores-extension")
 @CrossOrigin(origins = "http://agendamanager.s3-website.us-east-2.amazonaws.com")
-public class GestionAcademicaController {
- @Autowired
-    private GestionAcademicasService service;
+public class ExtensionCulturalesController {
+
+    @Autowired
+    private LaboresExtensionService service;
 
     @Autowired
     private HistorialFormularioService historialFormularioService;
 
     @PostMapping
-    public ResponseEntity<?> guardarLaboresGestion(@RequestBody GestionAcademicaDTO dto) {
+    public ResponseEntity<?> guardarLaboresExtension(@RequestBody LaboresExtensionDTO dto) {
         try {
-            service.guardarGestionAcademica(dto);
+            service.guardar(dto);
 
             HistorialFormulario historial = new HistorialFormulario();
             historial.setFecha(LocalDateTime.now());
             historial.setAccion("Formulario enviado");
             historial.setUsuario("Docente");
-            historial.setDescripcion("Labores de gestión académica - administrativa guardadas");
+            historial.setDescripcion("Labores de extensión y culturales guardadas");
             historialFormularioService.save(historial);
 
             return ResponseEntity.ok().build();
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body("{\"error\":\"Error al guardar labores de gestión\"}");
+            return ResponseEntity.internalServerError().body("{\"error\":\"Error al guardar labores de extensión\"}");
         }
     }
 }
